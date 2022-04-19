@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace GameFolders.Scripts
@@ -8,6 +9,7 @@ namespace GameFolders.Scripts
     {
         public int healthCount = 3;
         public GameObject healthBroken;
+        public GameObject wrongObject;
         private Vector3 healthBrokenPosition;
 
         private void Start()
@@ -40,6 +42,16 @@ namespace GameFolders.Scripts
             
             healthBroken.SetActive(false);
             healthBroken.transform.localPosition = healthBrokenPosition;
+        }
+
+        public void WrongProcess(Vector3 clickPosition)
+        {
+            Vector3 a = clickPosition;
+            a = Camera.main.ScreenToWorldPoint(a);
+            Debug.Log("click : " + a);
+            wrongObject.SetActive(true);
+            wrongObject.transform.position = a;
+            wrongObject.transform.DOPunchRotation(Vector3.one * 10f, 1f);
         }
     }
 }

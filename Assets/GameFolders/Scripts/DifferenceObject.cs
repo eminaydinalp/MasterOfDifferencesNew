@@ -17,6 +17,7 @@ namespace GameFolders.Scripts
 
             Instantiate(correctSign, transform.position, Quaternion.identity, CollisionController.instance.parentObject.transform);
             Instantiate(correctSign, pairObject.transform.position, Quaternion.identity, CollisionController.instance.parentObject.transform);
+            //ProgressController.instance.MoveParticle(transform.position);
             ProgressController.instance.progressObjects[ProgressController.instance.progressIndex].SetActive(true);
             ProgressController.instance.progressIndex++;
             Debug.Log(ProgressController.instance.progressIndex);

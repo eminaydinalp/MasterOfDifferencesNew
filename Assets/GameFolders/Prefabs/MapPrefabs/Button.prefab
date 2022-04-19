@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelStarActiveImages
       objectReference: {fileID: 0}
+    - target: {fileID: 4077292157387772925, guid: 0d9ec11e4f9b3c74d84982148a9becc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4413675833118735293, guid: 0d9ec11e4f9b3c74d84982148a9becc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -174,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 4948736626793003617, guid: c145605718d90f244b69d98f67de0f24, type: 3}
       propertyPath: m_Name
       value: LevelStarDeactiveImages
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948736626793003617, guid: c145605718d90f244b69d98f67de0f24, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5253702047463027662, guid: c145605718d90f244b69d98f67de0f24, type: 3}
       propertyPath: m_Pivot.x

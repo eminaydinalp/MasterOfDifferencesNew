@@ -16,6 +16,13 @@ namespace GameFolders.Scripts
                 { 
                     levelButtons[i].GetComponent<LevelButton>().DoDeactive();
                 }
+                
+                if (i + 2 > GameManager.instance.currentLevel)
+                { 
+                    levelButtons[i].GetComponent<LevelButton>().StarsDeActive();
+                }
+                
+                
             }
         }
     }

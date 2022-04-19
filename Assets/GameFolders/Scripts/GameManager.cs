@@ -86,6 +86,7 @@ namespace GameFolders.Scripts
             yield return new WaitForSeconds(.1f);
             //Player.Instance.started = false;
             //Player.Instance.speed = 0;
+            UIManager.instance.failText.text = "Level " + (levelIndex + 1);
             UIManager.instance.failUI.SetActive(true);
             //UIManager.instance.complateUI.SetActive(false);
         }
@@ -100,7 +101,7 @@ namespace GameFolders.Scripts
             yield return new WaitForSeconds(0.1f);
             //StartCoroutine(KonfettiPatlat());
             UIManager.instance.complateUIs[_health.healthCount - 1].SetActive(true);
-            UIManager.instance.totalLevelText.text = currentLevel + " Level";
+            UIManager.instance.complateTexts[_health.healthCount - 1].text = "Level " + (levelIndex + 1);
             UIManager.instance.failUI.SetActive(false);
         }
     }

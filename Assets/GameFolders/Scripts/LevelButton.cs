@@ -21,5 +21,11 @@ namespace GameFolders.Scripts
             starActive.SetActive(false);
             starDeactive.SetActive(true);
         }
+
+        public void StarsDeActive()
+        {
+            starActive.SetActive(false);
+            starDeactive.SetActive(true);
+        }
     }
 }
