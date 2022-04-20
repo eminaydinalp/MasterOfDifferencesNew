@@ -50,8 +50,8 @@ namespace GameFolders.Scripts
             a = Camera.main.ScreenToWorldPoint(a);
             Debug.Log("click : " + a);
             wrongObject.SetActive(true);
-            wrongObject.transform.position = a;
-            wrongObject.transform.DOPunchRotation(Vector3.one * 10f, 1f);
+            wrongObject.transform.position = new Vector3(a.x, a.y, 0);
+            wrongObject.transform.DOPunchRotation(Vector3.one * 10f, 1f).OnComplete((() => wrongObject.SetActive(false)));
         }
     }
 }

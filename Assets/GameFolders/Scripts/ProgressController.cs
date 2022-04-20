@@ -20,13 +20,29 @@ namespace GameFolders.Scripts
 
         public void MoveParticle(Vector3 clickPosition)
         {
-            GameObject cloneParticle = Instantiate(particleObject, clickPosition, Quaternion.identity);
+            particleObject.transform.position = clickPosition;
+            particleObject.SetActive(true);
 
-            Vector3 direction = cloneParticle.transform.position - progressObjects[progressIndex].transform.position;
+            Vector3 direction = particleObject.transform.position - progressObjects[progressIndex].transform.position;
 
-            cloneParticle.transform.rotation = Quaternion.Euler(direction);
+            particleObject.transform.rotation = Quaternion.Euler(direction);
 
-            cloneParticle.transform.DOMove(progressObjects[progressIndex].transform.position, 2f).OnComplete((() => Destroy(cloneParticle)));
+            particleObject.transform.DOMove(progressObjects[progressIndex].transform.position, 1f)
+                .OnComplete(aa);
+
+        }
+
+        void aa()
+        {
+            particleObject.SetActive(false);
+            progressObjects[progressIndex].SetActive(true);
+            progressIndex++;
+            
+            if (progressIndex == progressObjects.Length)
+            {
+                CollisionController.instance.parentObject.SetActive(false);
+                GameManager.instance.Win();
+            }
         }
     }
 }

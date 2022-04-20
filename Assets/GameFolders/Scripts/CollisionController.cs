@@ -32,7 +32,7 @@ namespace GameFolders.Scripts
             {
                 Debug.Log("healt2");
                 _health.DecreaseHealth();
-                //_health.WrongProcess(clickPosition);
+                _health.WrongProcess(this.clickPosition);
                 return;
             }
 
