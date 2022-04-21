@@ -37,6 +37,7 @@ namespace GameFolders.Scripts
                 //this.clickPosition.y = Mathf.Clamp(this.clickPosition.y, -20f, -3.5f);
                 swipeLevel.transform.position = new Vector3(transform.position.x, this._clickPosition.y - _startPosY, transform.position.z);
                 if (swipeLevel.transform.position.y > -3.5f) swipeLevel.transform.position = new Vector3(transform.position.x, -3.5f, transform.position.z);
+                if (swipeLevel.transform.position.y < -52f) swipeLevel.transform.position = new Vector3(transform.position.x, -52f, transform.position.z);
             }
         }
 
