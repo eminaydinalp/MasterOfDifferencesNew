@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using GameFolders.Scripts.Controller;
+using GameFolders.Scripts.Manager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

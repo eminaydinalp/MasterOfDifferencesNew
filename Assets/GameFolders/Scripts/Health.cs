@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using DG.Tweening;
+using GameFolders.Scripts.Controller;
+using GameFolders.Scripts.Manager;
 using UnityEngine;
 
 namespace GameFolders.Scripts
@@ -51,7 +53,7 @@ namespace GameFolders.Scripts
             Debug.Log("click : " + a);
             wrongObject.SetActive(true);
             wrongObject.transform.position = new Vector3(a.x, a.y, 0);
-            wrongObject.transform.DOPunchRotation(Vector3.one * 10f, 1f).OnComplete((() => wrongObject.SetActive(false)));
+            wrongObject.transform.DOPunchScale(Vector3.one * 0.2f, 1f).OnComplete((() => wrongObject.SetActive(false)));
         }
     }
 }
