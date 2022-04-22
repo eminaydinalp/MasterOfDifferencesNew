@@ -6,7 +6,7 @@
             "id": "ae1376c1-f7b1-4130-bef8-4f59466fbe60",
             "actions": [
                 {
-                    "name": "Click",
+                    "name": "Held",
                     "type": "Button",
                     "id": "f741f45a-228f-401a-b20f-16f0ba74ae4f",
                     "expectedControlType": "Button",
@@ -20,6 +20,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "da83665b-ae87-465b-b04e-efeeb7185378",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -30,18 +38,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Click",
+                    "action": "Held",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9ca2940d-93b1-44ad-a505-ee33231eaf6c",
-                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "id": "17af5201-df2b-4d63-a6a2-bd5982220ad3",
+                    "path": "<Touchscreen>/touch0/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Click",
+                    "action": "Held",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -64,6 +72,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClickPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95d95303-22a5-4923-8b89-0b66ff93fbac",
+                    "path": "<Touchscreen>/touch0/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6f68148-a9ea-42e0-87ac-9e2e001330cf",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

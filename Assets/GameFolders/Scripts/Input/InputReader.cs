@@ -18,11 +18,7 @@ namespace GameFolders.Scripts.Input
                 _levelSwipe.FirstDown();
                 isHeld = true;
             }
-            if (action.performed && CollisionController.instance != null)
-            {
-                CollisionController.instance.ClickProsess();
-            }
-			if (action.canceled)
+            if (action.canceled)
 			{
                 isHeld = false;
 			}
@@ -33,5 +29,13 @@ namespace GameFolders.Scripts.Input
             if (CollisionController.instance == null) return;
             CollisionController.instance.clickPosition = callbackContext.ReadValue<Vector2>();
         } 
+        
+        public void FirstDownGame(InputAction.CallbackContext action)
+        {
+            if (action.performed && CollisionController.instance != null)
+            {
+                CollisionController.instance.ClickProsess();
+            }
+        }
     }
 }

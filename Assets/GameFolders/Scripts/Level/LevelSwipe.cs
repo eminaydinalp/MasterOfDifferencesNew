@@ -10,7 +10,6 @@ namespace GameFolders.Scripts.Level
         [SerializeField] GameObject swipeLevel;
 
         Vector2 _clickPosition;
-        float _startPosX;
         float _startPosY;
 
         private void Update()
@@ -46,7 +45,6 @@ namespace GameFolders.Scripts.Level
             this._clickPosition = _inputReader.clickPosition;
             this._clickPosition = Camera.main.ScreenToWorldPoint(_clickPosition);
 
-            _startPosX = _clickPosition.x - swipeLevel.transform.position.x;
             _startPosY = _clickPosition.y - swipeLevel.transform.position.y;
         }
     }

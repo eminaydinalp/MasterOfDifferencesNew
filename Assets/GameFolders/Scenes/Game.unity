@@ -10601,6 +10601,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3115f31f-1d4e-4a9f-8219-7e6369b5fa93
     m_ActionName: Genel/ClickPosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1977184733}
+        m_TargetAssemblyTypeName: GameFolders.Scripts.Input.InputReader, Assembly-CSharp
+        m_MethodName: FirstDownGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da83665b-ae87-465b-b04e-efeeb7185378
+    m_ActionName: Genel/Click
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Genel

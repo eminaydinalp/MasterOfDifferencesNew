@@ -19,7 +19,7 @@ public class @Input : IInputActionCollection, IDisposable
             ""id"": ""ae1376c1-f7b1-4130-bef8-4f59466fbe60"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
+                    ""name"": ""Held"",
                     ""type"": ""Button"",
                     ""id"": ""f741f45a-228f-401a-b20f-16f0ba74ae4f"",
                     ""expectedControlType"": ""Button"",
@@ -33,6 +33,14 @@ public class @Input : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""da83665b-ae87-465b-b04e-efeeb7185378"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -43,18 +51,18 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Click"",
+                    ""action"": ""Held"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9ca2940d-93b1-44ad-a505-ee33231eaf6c"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""17af5201-df2b-4d63-a6a2-bd5982220ad3"",
+                    ""path"": ""<Touchscreen>/touch0/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Click"",
+                    ""action"": ""Held"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -79,6 +87,28 @@ public class @Input : IInputActionCollection, IDisposable
                     ""action"": ""ClickPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95d95303-22a5-4923-8b89-0b66ff93fbac"",
+                    ""path"": ""<Touchscreen>/touch0/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6f68148-a9ea-42e0-87ac-9e2e001330cf"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -87,8 +117,9 @@ public class @Input : IInputActionCollection, IDisposable
 }");
         // Genel
         m_Genel = asset.FindActionMap("Genel", throwIfNotFound: true);
-        m_Genel_Click = m_Genel.FindAction("Click", throwIfNotFound: true);
+        m_Genel_Held = m_Genel.FindAction("Held", throwIfNotFound: true);
         m_Genel_ClickPosition = m_Genel.FindAction("ClickPosition", throwIfNotFound: true);
+        m_Genel_Click = m_Genel.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -138,14 +169,16 @@ public class @Input : IInputActionCollection, IDisposable
     // Genel
     private readonly InputActionMap m_Genel;
     private IGenelActions m_GenelActionsCallbackInterface;
-    private readonly InputAction m_Genel_Click;
+    private readonly InputAction m_Genel_Held;
     private readonly InputAction m_Genel_ClickPosition;
+    private readonly InputAction m_Genel_Click;
     public struct GenelActions
     {
         private @Input m_Wrapper;
         public GenelActions(@Input wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_Genel_Click;
+        public InputAction @Held => m_Wrapper.m_Genel_Held;
         public InputAction @ClickPosition => m_Wrapper.m_Genel_ClickPosition;
+        public InputAction @Click => m_Wrapper.m_Genel_Click;
         public InputActionMap Get() { return m_Wrapper.m_Genel; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -155,29 +188,36 @@ public class @Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GenelActionsCallbackInterface != null)
             {
-                @Click.started -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
+                @Held.started -= m_Wrapper.m_GenelActionsCallbackInterface.OnHeld;
+                @Held.performed -= m_Wrapper.m_GenelActionsCallbackInterface.OnHeld;
+                @Held.canceled -= m_Wrapper.m_GenelActionsCallbackInterface.OnHeld;
                 @ClickPosition.started -= m_Wrapper.m_GenelActionsCallbackInterface.OnClickPosition;
                 @ClickPosition.performed -= m_Wrapper.m_GenelActionsCallbackInterface.OnClickPosition;
                 @ClickPosition.canceled -= m_Wrapper.m_GenelActionsCallbackInterface.OnClickPosition;
+                @Click.started -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_GenelActionsCallbackInterface.OnClick;
             }
             m_Wrapper.m_GenelActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
+                @Held.started += instance.OnHeld;
+                @Held.performed += instance.OnHeld;
+                @Held.canceled += instance.OnHeld;
                 @ClickPosition.started += instance.OnClickPosition;
                 @ClickPosition.performed += instance.OnClickPosition;
                 @ClickPosition.canceled += instance.OnClickPosition;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
     public GenelActions @Genel => new GenelActions(this);
     public interface IGenelActions
     {
-        void OnClick(InputAction.CallbackContext context);
+        void OnHeld(InputAction.CallbackContext context);
         void OnClickPosition(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }
